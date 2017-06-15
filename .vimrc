@@ -146,24 +146,26 @@ filetype plugin indent on
 " ___) || | | |\  | | |/ ___ \ ___) || |  | | |___ 
 "|____/ |_| |_| \_| |_/_/   \_\____/ |_| |___\____|
 "                                                  
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
 let g:syntastic_error_symbol='>>'
 let g:syntastic_warning_symbol='>'
-let g:syntasitic_always_populate_loc_list = 1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_enable_highlighting=1
+let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
+" 修改高亮的背景色, 适应主题
+highlight SyntasticErrorSign guifg=blue guibg=red
+" to see error location list
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_loc_list_height = 5
-let g:synatastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_quiet_messages = {"!level":"errors"}
-
-map <F7> :SyntasticToggleMode<CR>
-
-let g:syntastic_cpp_checkers = ['gcc']
-let g:syntastic_cpp_compiler = 'gcc'
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
-let g:syntastic_python_checkers = ['pyflake8']
+function! ToggleErrors()
+    let old_last_winnr = winnr('$')
+    lclose
+    if old_last_winnr == winnr('$')
+        " Nothing was closed, open syntastic error location panel 
+        Errors 
+    endif
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -211,17 +213,16 @@ inoremap <leader>, <C-x><C-o>
 let g:PyFlakeOnWrite = 1
 
 "List of checkers used:
-"let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
-"""""""""""""""""""""""""""""""""""""""""""
-let g:PyFlakeCheckers = 'pyflakes'
-"""""""""""""""""""""""""""""""""""""""""""""""
+let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
 
 "Default maximum complexity for mccabe:
-"let g:PyFlakeDefaultComplexity = 10
-let g:PyFlakeDefaultComplexity = 0
+let g:PyFlakeDefaultComplexity = 10
 
 "List of disabled pep8 warning and errors:
 let g:PyFlakeDisabledMessages = 'E501'
+let g:PyFlakeDisabledMessages = 'E265'
+let g:PyFlakeDisabledMessages = 'F405'
+let g:PyFlakeDisabledMessages = 'W293'
 
 "Default height of quickfix window:
 let g:PyFlakeCWindow = 5
