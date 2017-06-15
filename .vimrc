@@ -152,12 +152,13 @@ filetype plugin indent on
 let g:syntastic_error_symbol='>>'
 let g:syntastic_warning_symbol='>'
 let g:syntasitic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
 let g:synatastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_quiet_messages = {"!level":"errors"}
 
-map <F6> :SyntasticToggleMode<CR>
+map <F7> :SyntasticToggleMode<CR>
 
 let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_cpp_compiler = 'gcc'
@@ -195,7 +196,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <F7> :YcmForceCompileAndDiagnostics<CR>
+nnoremap <F6> :YcmForceCompileAndDiagnostics<CR>
 inoremap <leader>, <C-x><C-o>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -210,16 +211,20 @@ inoremap <leader>, <C-x><C-o>
 let g:PyFlakeOnWrite = 1
 
 "List of checkers used:
-let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
+"let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
+"""""""""""""""""""""""""""""""""""""""""""
+let g:PyFlakeCheckers = 'pyflakes'
+"""""""""""""""""""""""""""""""""""""""""""""""
 
 "Default maximum complexity for mccabe:
-let g:PyFlakeDefaultComplexity = 10
+"let g:PyFlakeDefaultComplexity = 10
+let g:PyFlakeDefaultComplexity = 0
 
 "List of disabled pep8 warning and errors:
 let g:PyFlakeDisabledMessages = 'E501'
 
 "Default height of quickfix window:
-let g:PyFlakeCWindow = 6
+let g:PyFlakeCWindow = 5
 
 "Whether to place signs or not:
 let g:PyFlakeSigns = 1
@@ -229,6 +234,8 @@ let g:PyFlakeMaxLineLength = 100
 
 "Visual-mode key command for PyFlakeAuto
 let g:PyFlakeRangeCommand = 'Q'
+
+let g:flake8_quickfix_height = 7
 
 noremap <F5> :call flake8#Flake8()<CR>
 
