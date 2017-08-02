@@ -9,13 +9,12 @@
 "Joker commonly settings:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  ____ ___  __  __ __  __  ___  _   _ 
 " / ___/ _ \|  \/  |  \/  |/ _ \| \ | |
 "| |  | | | | |\/| | |\/| | | | |  \| |
 "| |__| |_| | |  | | |  | | |_| | |\  |
 " \____\___/|_|  |_|_|  |_|\___/|_| \_|
-"                                      
+"
 "joker:set leader
 let mapleader=","
 
@@ -23,10 +22,10 @@ if has("syntax")
 	syntax on
 endif
 
-colorscheme ron
+"colorscheme ron
 
 set laststatus=2
-set history=1000
+set history=100
 set noswapfile
 set nobackup
 set showcmd
@@ -56,6 +55,11 @@ set tabstop=4
 set smarttab
 set mouse=a
 
+au BufNewFile,BufRead *.py
+\ set textwidth=79 |
+\ set expandtab |
+\ set fileformat=unix |
+
 "Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -79,7 +83,6 @@ nnoremap <C-h> <C-w><C-h>
 filetype indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "__     ___   _ _   _ ____  _     _____ 
 "\ \   / / | | | \ | |  _ \| |   | ____|
 " \ \ / /| | | |  \| | | | | |   |  _|  
@@ -97,30 +100,27 @@ Bundle 'VundleVim/Vundle.vim'
 "my Bundle here:
 "
 " original repos on github
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'kien/ctrlp.vim'
-Bundle 'sukima/xmledit'
-Bundle 'sjl/gundo.vim'
 Bundle 'jiangmiao/auto-pairs'
+Bundle 'kien/ctrlp.vim'
+Bundle 'sjl/gundo.vim'
 Bundle 'Valloric/ListToggle'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'rdnetto/YCM-Generator', {'branch':'stable'}
-Bundle 'vim-syntastic/syntastic'
 Bundle 'nvie/vim-flake8'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 't9md/vim-quickhl'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 'powerline/powerline'
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'honza/vim-snippets'
-"Bundle 'SirVer/ultisnips'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'powerline/powerline'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-fugitive'
+Bundle 'sukima/xmledit'
+" Bundle 'vim-syntastic/syntastic'
+"Bundle 't9md/vim-quickhl'
 "..................................
 " vim-scripts repos
+"Bundle 'vcscommand.vim'
 Bundle 'davidhalter/jedi-vim'
-Bundle 'vcscommand.vim'
 Bundle 'SudoEdit.vim'
 Bundle 'cscope.vim'
 Bundle 'header.vim'
@@ -138,141 +138,6 @@ Bundle 'VOoM'
 call vundle#end()
 filetype plugin indent on
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ______   ___   _ _____  _    ____ _____ ___ ____ 
-"/ ___\ \ / / \ | |_   _|/ \  / ___|_   _|_ _/ ___|
-"\___ \\ V /|  \| | | | / _ \ \___ \ | |  | | |    
-" ___) || | | |\  | | |/ ___ \ ___) || |  | | |___ 
-"|____/ |_| |_| \_| |_/_/   \_\____/ |_| |___\____|
-"                                                  
-let g:syntastic_error_symbol='>>'
-let g:syntastic_warning_symbol='>'
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_enable_highlighting=1
-let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
-" 修改高亮的背景色, 适应主题
-highlight SyntasticErrorSign guifg=blue guibg=red
-" to see error location list
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_loc_list_height = 5
-function! ToggleErrors()
-    let old_last_winnr = winnr('$')
-    lclose
-    if old_last_winnr == winnr('$')
-        " Nothing was closed, open syntastic error location panel 
-        Errors 
-    endif
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"__   ______ __  __ 
-"\ \ / / ___|  \/  |
-" \ V / |   | |\/| |
-"  | || |___| |  | |
-"  |_| \____|_|  |_|
-"
-set completeopt-=preview
-
-set tags=tags;
-set autochdir
-
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-
-" Do not ask when starting vim
-let g:ycm_confirm_extra_conf = 0
-
-let g:ycm_collect_identifiers_from_tags_files = 1
-
-let g:ycm_min_num_of_chars_for_completion = 1
-
-let g:ycm_complete_in_comments = 1
-
-let g:ycm_cache_omnifunc = 0
-
-let g:ycm_autoclose_preview_window_after_completion = 1
-
-let g:ycm_seed_identifiers_with_syntax = 1
-
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <F6> :YcmForceCompileAndDiagnostics<CR>
-inoremap <leader>, <C-x><C-o>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" _____ _        _     _   _ _____ 
-"|  ___| |      / \   | |/ /| ____|  
-"| |_  | |     / _ \  | | / |  _|  
-"|  _| | |___ / ___ \ |   \ | |___ 
-"|_|   |_____/_/   \_\|_|\_\|_____|
-"
-"Auto-check file for errors on write:
-let g:PyFlakeOnWrite = 1
-
-"List of checkers used:
-let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
-
-"Default maximum complexity for mccabe:
-let g:PyFlakeDefaultComplexity = 10
-
-"List of disabled pep8 warning and errors:
-let g:PyFlakeDisabledMessages = 'E501'
-let g:PyFlakeDisabledMessages = 'E265'
-let g:PyFlakeDisabledMessages = 'F405'
-let g:PyFlakeDisabledMessages = 'W293'
-
-"Default height of quickfix window:
-let g:PyFlakeCWindow = 5
-
-"Whether to place signs or not:
-let g:PyFlakeSigns = 1
-
-"Maximum line length for PyFlakeAuto command
-let g:PyFlakeMaxLineLength = 100
-
-"Visual-mode key command for PyFlakeAuto
-let g:PyFlakeRangeCommand = 'Q'
-
-let g:flake8_quickfix_height = 7
-
-noremap <F5> :call flake8#Flake8()<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" _   _ _____ ____  ____      _____ ____  _____ _____ 
-"| \ | | ____|  _ \|  _ \    |_   _|  _ \| ____| ____|
-"|  \| |  _| | |_) | | | |_____| | | |_) |  _| |  _|  
-"| |\  | |___|  _ <| |_| |_____| | |  _ <| |___| |___ 
-"|_| \_|_____|_| \_\____/      |_| |_| \_\_____|_____|
-"
-let NERDTreeWinPos="left"
-
-let NERDChristmasTree=1
- 
-let NERDTreeAutoCenter=1
- 
-let NERDTreeMouseMode=2
- 
-let NERDTreeShowFiles=1
- 
-let NERDTreeShowHidden=1
-
-let NERDTreeHightCursorline=1
-
-let NERDTreeShowLineNumbers=1
-
-let NERDTreeWinSize=32
-
-let NERDTreeMinimalUI=1
-
-let NERDTreeAutoDeleteBuffer=1
-
-nnoremap <silent><F2> :NERDTreeToggle<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 "  ____ _____ ____  _     ____  
 " / ___|_   _|  _ \| |   |  _ \ 
@@ -304,13 +169,12 @@ let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  ____ _   _ _   _ ____   ___  
 " / ___| | | | \ | |  _ \ / _ \ 
 "| |  _| | | |  \| | | | | | | |
 "| |_| | |_| | |\  | |_| | |_| |
 " \____|\___/|_| \_|____/ \___/ 
-"                               
+"
 let g:gundo_width = 40
 
 let g:gundo_preview_height = 40
@@ -320,13 +184,163 @@ let g:gundo_left = 1
 nnoremap <F3> :GundoToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
+"__   ______ __  __ 
+"\ \ / / ___|  \/  |
+" \ V / |   | |\/| |
+"  | || |___| |  | |
+"  |_| \____|_|  |_|
+"
+set completeopt-=preview
+
+set tags=tags;
+set autochdir
+
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
+
+" Do not ask when starting vim
+let g:ycm_confirm_extra_conf = 0
+
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+let g:ycm_min_num_of_chars_for_completion = 1
+
+let g:ycm_complete_in_comments = 1
+
+let g:ycm_cache_omnifunc = 0
+
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+let g:ycm_seed_identifiers_with_syntax = 1
+
+let g:ycm_error_symbol = '>>'
+
+let g:ycm_warning_symbol = '⚠'
+ 
+highlight YcmErrorSign ctermfg=DarkRED
+highlight YcmErrorSign ctermbg=none
+highlight YcmErrorSection ctermbg=DARKBLUE
+highlight YcmErrorSection ctermfg=WHITE
+highlight YcmWarningSection ctermbg=BLUE
+
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <F6> :YcmForceCompileAndDiagnostics<CR>
+inoremap <leader>, <C-x><C-o>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" _____ _       _     _   _ _____ _____
+"|  ___| |     / \   | |/ /| ____/ ___ \
+"| |_  | |    / _ \  | | / |  _| \_\_/_/
+"|  _| | |___/ ___ \ |   \ | |___/ /_\ \
+"|_|   |____/_/   \_\|_|\_\|_____\_____/
+"
+" let g:falke8_ignore="E302"
+
+let g:flake8_quickfix_height = 7
+
+let g:flake8_show_in_gutter=1
+
+let g:flake8_show_in_file=1
+
+" flake8_error_marker='EE'     " set error marker to 'EE'
+" flake8_warning_marker='WW'   " set warning marker to 'WW'
+" flake8_pyflake_marker=''     " disable PyFlakes warnings
+" flake8_complexity_marker=''  " disable McCabe complexity warnings
+" flake8_naming_marker=''      " disable naming warnings
+
+noremap <F5> :call flake8#Flake8()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" _   _ _____ ____  ____      _____ ____  _____ _____ 
+"| \ | | ____|  _ \|  _ \    |_   _|  _ \| ____| ____|
+"|  \| |  _| | |_) | | | |_____| | | |_) |  _| |  _|  
+"| |\  | |___|  _ <| |_| |_____| | |  _ <| |___| |___ 
+"|_| \_|_____|_| \_\____/      |_| |_| \_\_____|_____|
+"
+let NERDTreeWinPos="left"
+
+let NERDChristmasTree=1
+ 
+let NERDTreeAutoCenter=1
+ 
+let NERDTreeMouseMode=2
+ 
+let NERDTreeShowFiles=1
+ 
+let NERDTreeShowHidden=1
+
+let NERDTreeHightCursorline=1
+
+let NERDTreeShowLineNumbers=1
+
+let NERDTreeWinSize=40
+
+let NERDTreeMinimalUI=1
+
+let NERDTreeAutoDeleteBuffer=1
+
+nnoremap <silent><F2> :NERDTreeToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" _   _ _____ ____  ____   ____            
+"| \ | | ____|  _ \|  _ \ / __/ ___  _ __ ___
+"|  \| |  _| | |_) | | | | |   / _ \| '_ ` _ \ 
+"| |\  | |___|  _ <| |_| | |__| |_| | | | | | |
+"|_| \_|_____|_| \_\____/ \___\\___/|_| |_| |_|
+"
+let g:NERDSpaceDelims=1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ____   ___ __        _ _____ ____   _    ___ _   _ _____ 
+"|  _ \ / _ \\ \  _   / / ____|  _ \ | |  |_ _| \ | | ____|
+"| |_) | | | |\ \/ \ / /|  _| | |_) || |   | ||  \| |  _|  
+"|  __/| |_| | \  \ / / | |___| |_ < | |__ | || |\  | |___ 
+"|_|    \___/   \/ \_/  |_____|_| \_\|____|___|_| \_|_____|
+"
+set rtp+=/usr/local/lib/python2.7/dist-packages/
+            \powerline_status-2.6.dev9999+git.f35c401b0f7fe9eca986bfe28f76c3df5f51f9b5-py2.7.egg/
+            \powerline/bindings/vim 
+set t_Co=256
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"__     __ ___                
+"\ \   / // _ \   ___  ____ ___  
+" \ \ / /| | | | / _ \/  _   _ \ 
+"  \ V / | |_| || |_| | | | | | |
+"   \_/   \___/  \___/|_| |_| |_|
+"
+nnoremap <F7> :VOom<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"  (_) ___  __| (_)    __   _(_)_ __ ___  
+"  | |/ _ \/ _` | |____\ \ / / | '_ ` _ \ 
+"  | |  __/ (_| | |_____\ V /| | | | | | |
+" _/ |\___|\__,_|_|      \_/ |_|_| |_| |_|
+"|__/                                     
+"
+let g:jedi#use_splits_not_buffers = "left"
+
+let g:jedi#goto_command = "<leader>d"
+
+let g:jedi#goto_assignments_command = "<leader>g"
+
+let g:jedi#goto_definitions_command = ""
+
+let g:jedi#documentation_command = "K"
+
+let g:jedi#usages_command = "<leader>n"
+
+let g:jedi#completions_command = "<C-Space>"
+
+let g:jedi#rename_command = "<leader>r"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 "  ____ ____   ____ ___  ____  _____ 
 " / ___/ ___| / ___/ _ \|  _ \| ____|
 "| |   \___ \| |  | | | | |_) |  _|  
 "| |___ ___) | |__| |_| |  __/| |___ 
 " \____|____/ \____\___/|_|   |_____|
-"                                    
+"
 if has("cscope")
             set cscopetag   " 使支持用 Ctrl+]  和 Ctrl+t 快捷键在代码间跳来跳去
             " check cscope for definition of a symbol before checking ctags:
@@ -376,23 +390,34 @@ nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
 nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
+" _        _    ____   ____ _____      _____ ___ _     _____ 
+"| |      / \  |  _ \ / ___| ____|    |  ___|_ _| |   | ____|
+"| |     / _ \ | |_) | |  _|  _| _____| |_   | || |   |  _|  
+"| |___ / ___ \|  _ <| |_| | |__|_____|  _|  | || |___| |___ 
+"|_____/_/   \_\_| \_\\____|_____|    |_|   |___|_____|_____|
+"
+let g:LargeFile = 20
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " _____  _    ____ _     ___ ____ _____ 
 "|_   _|/ \  / ___| |   |_ _/ ___|_   _|
 "  | | / _ \| |  _| |    | |\___ \ | |  
 "  | |/ ___ \ |_| | |___ | | ___) || |  
 "  |_/_/   \_\____|_____|___|____/ |_|  
-"                                       
+"
+let g:tagbar_ctags_bin='/usr/bin/ctags'
+
+let g:tagbar_width=40
+
 nmap <F4> :TagbarToggle<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " ___ _   _ ____  _____ _   _ _____ ____ _   _ ___ ____  _____ 
 "|_ _| \ | |  _ \| ____| \ | |_   _/ ___| | | |_ _|  _ \| ____|
 " | ||  \| | | | |  _| |  \| | | || |  _| | | || || | | |  _|  
 " | || |\  | |_| | |___| |\  | | || |_| | |_| || || |_| | |___ 
 "|___|_| \_|____/|_____|_| \_| |_| \____|\___/|___|____/|_____|
-"                                                              
+"
 set ts=4 sw=4 et
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
@@ -400,7 +425,6 @@ let g:indent_guides_guide_size = 1
 autocmd VimEnter,Colorscheme *:hi IndentGuidesOdd  guibg=red ctermbg=3
 autocmd VimEnter,Colorscheme *:hi IndentGuidesEven guibg=green ctermbg=4
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 "    _    
 "   / \   
@@ -410,23 +434,3 @@ autocmd VimEnter,Colorscheme *:hi IndentGuidesEven guibg=green ctermbg=4
 "
 nmap <leader>ch :AS<Cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   _          _ _            _           
-"  (_) ___  __| (_)    __   _(_)_ __ ___  
-"  | |/ _ \/ _` | |____\ \ / / | '_ ` _ \ 
-"  | |  __/ (_| | |_____\ V /| | | | | | |
-" _/ |\___|\__,_|_|      \_/ |_|_| |_| |_|
-"|__/                                     
-"
-let g:jedi#use_splits_not_buffers = "left"
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" _        _    ____   ____ _____      _____ ___ _     _____ 
-"| |      / \  |  _ \ / ___| ____|    |  ___|_ _| |   | ____|
-"| |     / _ \ | |_) | |  _|  _| _____| |_   | || |   |  _|  
-"| |___ / ___ \|  _ <| |_| | |__|_____|  _|  | || |___| |___ 
-"|_____/_/   \_\_| \_\\____|_____|    |_|   |___|_____|_____|
-"                                                            
-let g:LargeFile = 20
