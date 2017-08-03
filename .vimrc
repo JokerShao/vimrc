@@ -115,12 +115,15 @@ Bundle 'powerline/powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'sukima/xmledit'
-" Bundle 'vim-syntastic/syntastic'
+"Bundle 'vim-syntastic/syntastic'
 "Bundle 't9md/vim-quickhl'
 "..................................
 " vim-scripts repos
 "Bundle 'vcscommand.vim'
+
+"这个插件会导致开启vim终端打空格
 Bundle 'davidhalter/jedi-vim'
+
 Bundle 'SudoEdit.vim'
 Bundle 'cscope.vim'
 Bundle 'header.vim'
@@ -144,7 +147,7 @@ filetype plugin indent on
 "| |     | | | |_) | |   | |_) |
 "| |___  | | |  _ <| |___|  __/ 
 " \____| |_| |_| \_\_____|_|    
-"                           
+"
 let g:ctrlp_map = '<leader>p'
 
 let g:ctrlp_cmd = 'CtrlP'
@@ -296,9 +299,8 @@ let g:NERDSpaceDelims=1
 "|  __/| |_| | \  \ / / | |___| |_ < | |__ | || |\  | |___ 
 "|_|    \___/   \/ \_/  |_____|_| \_\|____|___|_| \_|_____|
 "
-set rtp+=/usr/local/lib/python2.7/dist-packages/
-            \powerline_status-2.6.dev9999+git.f35c401b0f7fe9eca986bfe28f76c3df5f51f9b5-py2.7.egg/
-            \powerline/bindings/vim 
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
+
 set t_Co=256
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -318,21 +320,24 @@ nnoremap <F7> :VOom<CR>
 " _/ |\___|\__,_|_|      \_/ |_|_| |_| |_|
 "|__/                                     
 "
-let g:jedi#use_splits_not_buffers = "left"
+" let g:jedi#use_tabs_not_buffers = 1
 
-let g:jedi#goto_command = "<leader>d"
+" let g:jedi#use_splits_not_buffers = "left"
 
-let g:jedi#goto_assignments_command = "<leader>g"
+" let g:jedi#goto_command = "<leader>d"
 
-let g:jedi#goto_definitions_command = ""
+" let g:jedi#goto_assignments_command = "<leader>g"
 
-let g:jedi#documentation_command = "K"
+" let g:jedi#goto_definitions_command = ""
 
-let g:jedi#usages_command = "<leader>n"
+" let g:jedi#documentation_command = "K"
 
-let g:jedi#completions_command = "<C-Space>"
+" let g:jedi#usages_command = "<leader>n"
 
-let g:jedi#rename_command = "<leader>r"
+" let g:jedi#completions_command = "<C-Space>"
+
+" let g:jedi#rename_command = "<leader>r"
+ let g:jedi#completions_enabled = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 "  ____ ____   ____ ___  ____  _____ 
@@ -433,4 +438,3 @@ autocmd VimEnter,Colorscheme *:hi IndentGuidesEven guibg=green ctermbg=4
 "/_/   \_\
 "
 nmap <leader>ch :AS<Cr>
-
