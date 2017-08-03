@@ -1,5 +1,14 @@
-#Joker's vimrc
+# Joker's .vimrc
 
+#### joker's personal .vimrc
+
+## shortcuts
+
+            F1.Help                     F5.Flake8
+            F2.NERDTree                 F6.YCM
+            F3.GundoToggle              F7.VOom
+            F4.TagList
+shortcuts
 在/home/username目录下建立了一个.vimrc文件的硬链接<br>
 修改~/.vimrc会直接修改~/.vim/.vimrc<br>
 
