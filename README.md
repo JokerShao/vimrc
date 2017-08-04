@@ -10,6 +10,7 @@
             F4.TagList
 
 ## Usage:
+
             需要单独配置的插件
             ctrlp
             YCM
@@ -17,6 +18,7 @@
             powerline
             jedi
             cscope
+            
 在/home/username目录下建立了一个.vimrc文件的硬链接<br>
 修改~/.vimrc会直接修改~/.vim/.vimrc<br>
 
