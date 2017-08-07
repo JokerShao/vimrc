@@ -5,8 +5,8 @@
 ## shortcuts
 
             F1.Help                     F5.Flake8
-            F2.NERDTree                 F6.YCM
-            F3.GundoToggle              F7.VOom
+            F2.NERDTree                 F6.YCM-Diagnostics
+            F3.Gundo              F7.VOom
             F4.TagList
 
 ## Usage:
