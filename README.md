@@ -2,32 +2,32 @@
 
 #### joker's personal .vimrc
 
-## shortcuts
+## Shortcuts
 
-            F1.Help                     F5.Flake8
-            F2.NERDTree                 F6.YCM-Diagnostics
-            F3.Gundo              F7.VOom
-            F4.TagList
+    F1.Help                     F5.Flake8
+    F2.NERDTree                 F6.YCM-Diagnostics
+    F3.Gundo              F7.VOom
+    F4.TagList          F8.Markdown-preview
 
 ## Usage:
 
-            需要单独配置的插件
-            ctrlp
-            YCM
-            flake8
-            powerline
-            jedi
-            cscope
-            
+    需要单独配置的插件
+    ctrlp
+    YCM
+    flake8
+    powerline
+    jedi
+    cscope
+
 在/home/username目录下建立了一个.vimrc文件的硬链接<br>
 修改~/.vimrc会直接修改~/.vim/.vimrc<br>
 
 项目包含:<br>
-    .ycm_extra_conf.py
-    Update_hosts.py
-    .gitignore
-    README.md
-    .vimrc
+.ycm_extra_conf.py
+Update_hosts.py
+.gitignore
+README.md
+.vimrc
 
 ##使用
 
