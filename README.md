@@ -7,7 +7,7 @@
     F1.Help                     F5.Flake8
     F2.NERDTree                 F6.YCM-Diagnostics
     F3.Gundo              F7.VOom
-    F4.TagList          F8.Markdown-preview
+    F4.TagList                 F8.Markdown-preview
 
 ## Usage:
 
