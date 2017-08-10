@@ -19,6 +19,13 @@
     jedi
     cscope
 
+## how to use vim to work in a c/c++ project
+
+需要使用YCM-Generator生成一个.ycm_extra_conf.py文件使YCM可以补全工程所需头文件
+初始化一个cscope数据库，用于跳转
+初始化ctags标签用于查看类及函数，并可以用于跳转
+
+
 在/home/username目录下建立了一个.vimrc文件的硬链接<br>
 修改~/.vimrc会直接修改~/.vim/.vimrc<br>
 
