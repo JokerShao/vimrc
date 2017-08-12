@@ -43,19 +43,45 @@ You need to configure the following plugins individually.
     - jedi-vim - awesome Python autocompletion with VIM
 - [*cscope*][6]
     - Cscove(new name for this plugin, since cscope.vim is used too widely.) is a smart cscope helper for vim.
+- *ctags*
+    - Ubuntu:`sudo apt install ctags`
+    - RedHat:`yum install ctags`
 
 ## Shortcuts
 
-    F1.Terminal help          F5.Flake8
+    F1.Terminal help          F5.Flake8                  F9.TagsUpdate
     F2.NERDTree               F6.YCM-Diagnostics
     F3.Gundo                  F7.VOom
     F4.Tagbar                 F8.Markdown-preview
 
-## how to use vim to work in a c/c++ project
+## Working in a c/c++ project
 
-    需要使用YCM-Generator生成一个.ycm_extra_conf.py文件使YCM可以补全工程所需头文件
-    初始化一个cscope数据库，用于跳转
-    初始化ctags标签用于查看类及函数，并可以用于跳转
+- Create .ycm_extra_conf.py
+*Depends on Makefile*
+
+    ```
+    Launch `vim` in project root directories and run `:YcmGenerateconfig` 
+    to create a `.ycm_extra_conf.py`
+    so YCM can complete your project's function and class.
+    ```
+- Create cscope database
+*In project root directories*
+
+    ```
+    $ find `pwd` -name "*.c" -o -name "*.cpp" -o -name "*.hpp" -o -name "*.h" > cscope.files
+
+    $ cscope -Rbq
+    ```
+
+- Create ctags file
+> Need rebuild tags file when change source file.
+
+    - For c project
+        `ctags -R --c-kinds=+lpx --fields=+iaS --extra=+q`
+    - For c++ project
+        `ctags -R --c++-kinds=+lpx --fields=+iaS --extra=+q`
+    - For java project
+        `ctags --java-kinds=+l -R .`
 
 ## .ycm_extra_conf.py
 

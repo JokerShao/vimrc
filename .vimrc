@@ -361,31 +361,39 @@ nmap <F8> :MarkdownPreview<CR>
 " \____|____/ \____\___/|_|   |_____|
 "
 if has("cscope")
-            set cscopetag   " 使支持用 Ctrl+]  和 Ctrl+t 快捷键在代码间跳来跳去
-            " check cscope for definition of a symbol before checking ctags:
-            " set to 1 if you want the reverse search order.
-             set csto=1
+    " quickfix support
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
 
-             " add any cscope database in current directory
-             if filereadable("cscope.out")
-                 cs add cscope.out
-             " else add the database pointed to by environment variable
-             elseif $CSCOPE_DB !=""
-                 cs add $CSCOPE_DB
-             endif
+    " Ctrl+] & Ctrl+t/Ctrl+o support
+    set cscopetag
 
-             " show msg when any other cscope db added
-             set cscopeverbose
+    " check cscope for definition of a symbol before checking ctags:
+    " set to 1 if you want the reverse search order.
+    set csto=1
 
-             nmap <C-/>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-             nmap <C-/>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-             nmap <C-/>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-             nmap <C-/>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-             nmap <C-/>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-             nmap <C-/>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-             nmap <C-/>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-             nmap <C-/>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-         endif
+    " use |:cstag|(:cs find g)， not `:tag`
+    set cst
+
+    " add any cscope database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+    " else add the database pointed to by environment variable
+    elseif $CSCOPE_DB !=""
+        cs add $CSCOPE_DB
+    endif
+
+    " show msg when any other cscope db added
+    set cscopeverbose
+
+    nmap css :cs find s <C-R>=expand("<cword>")<CR><CR> :cw<CR>
+    nmap csg :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap csc :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap cst :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap cse :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap csf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap csi :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap csd :cs find d <C-R>=expand("<cword>")<CR><CR>
+endif
 
 "nnoremap <leader>l  :call ToggleLocationList()<CR>
 
@@ -407,6 +415,15 @@ nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
 nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
 " i: Find files #including this file
 nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  ___ _____  _    ____ ____ 
+" / __/_   _|/ \  / ___/ ___|
+"| |    | | / _ \| |  _\___ \
+"| |___ | |/ ___ \ |_|  ___) |
+" \____||_/_/   \_\____|____/
+"
+nnoremap <F9> :!ctags -R --c++-kinds=+lpx --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " _        _    ____   ____ _____      _____ ___ _     _____ 
