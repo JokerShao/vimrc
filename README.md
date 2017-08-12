@@ -1,6 +1,6 @@
 # Joker's .vimrc
 
-## Usage:
+## Usage
 
 1. Get configuration:
 
@@ -30,7 +30,7 @@
 3. Launch `vim` and run `:PluginInstall`
 
 > ### Attention:
-You need to configure the following plugins individually.
+You need to configure this following plugins individually.
 - [*ctrlp*][1]
     - Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 - [*YCM*][2]
@@ -64,7 +64,8 @@ You need to configure the following plugins individually.
     to create a `.ycm_extra_conf.py`
     so YCM can complete your project's function and class.
     ```
-- Create cscope database
+
+- Create cscope database[*(see more details)*][7]
 *In project root directories*
 
     ```
@@ -103,3 +104,4 @@ You need to configure the following plugins individually.
 [4]:https://github.com/powerline/powerline
 [5]:https://github.com/davidhalter/jedi-vim
 [6]:https://github.com/brookhong/cscope.vim
+[7]:https://github.com/JokerShao/vimrc/blob/master/cscope.md
