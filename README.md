@@ -49,10 +49,10 @@ You need to configure this following plugins individually.
 
 ## Shortcuts
 
-    F1.Terminal help          F5.Flake8                  F9.TagsUpdate
-    F2.NERDTree               F6.YCM-Diagnostics
-    F3.Gundo                  F7.VOom
-    F4.Tagbar                 F8.Markdown-preview
+	F1.Terminal help             F5.Flake8
+	F2.NERDTree                  F6.Markdown-preview
+	F3.Tagbar                    F7.TagsUpdate
+	F4.Gundo
 
 ## Working in a c/c++ project
 

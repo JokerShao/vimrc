@@ -24,8 +24,11 @@ endif
 
 "colorscheme ron
 
+set timeoutlen=1000
+set ttimeoutlen=100
+
 set laststatus=2
-set history=100
+set history=1000
 set noswapfile
 set nobackup
 set showcmd
@@ -72,7 +75,7 @@ set fencs=utf8,gbk,gb2312,gb18030
 
 "quit 
 nmap <ESC>w :w<Cr>
-nmap <ESC>q :q<Cr>
+nmap <ESC>q :q!<Cr>
 
 "split navigations
 nnoremap <C-j> <C-w><C-j>
@@ -100,48 +103,44 @@ Bundle 'VundleVim/Vundle.vim'
 "my Bundle here:
 "
 " original repos on github
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'kien/ctrlp.vim'
-Bundle 'sjl/gundo.vim'
-Bundle 'Valloric/ListToggle'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'rdnetto/YCM-Generator', {'branch':'stable'}
+Bundle 'honza/vim-snippets'
+Bundle 'SirVer/ultisnips'
 Bundle 'nvie/vim-flake8'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'sukima/xmledit'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'iamcco/markdown-preview.vim'
+Bundle 'iamcco/mathjax-support-for-mkdp'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'hari-rangarajan/CCTree'
 Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'powerline/powerline'
 Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-fugitive'
-Bundle 'sukima/xmledit'
+Bundle 'powerline/powerline'
+Bundle 'Valloric/ListToggle'
 Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'iamcco/mathjax-support-for-mkdp'
-Bundle 'iamcco/markdown-preview.vim'
-"Bundle 'vim-syntastic/syntastic'
+Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'kien/ctrlp.vim'
+"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 't9md/vim-quickhl'
+
+" 这个插件会导致开启vim终端打空格
+" Bundle 'davidhalter/jedi-vim'
 "..................................
 " vim-scripts repos
-"Bundle 'vcscommand.vim'
-
-"这个插件会导致开启vim终端打空格
-Bundle 'davidhalter/jedi-vim'
-
+" Bundle 'vcscommand.vim'
 Bundle 'SudoEdit.vim'
 Bundle 'cscope.vim'
 Bundle 'header.vim'
 Bundle 'ShowPairs'
 Bundle 'LargeFile'
 Bundle 'EasyGrep'
-Bundle 'CCTree'
 Bundle 'Tagbar'
 Bundle 'a.vim'
-Bundle 'VOoM'
-"..................................
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
-"..................................
+
 call vundle#end()
 filetype plugin indent on
 
@@ -182,13 +181,13 @@ let g:ctrlp_follow_symlinks=1
 "| |_| | |_| | |\  | |_| | |_| |
 " \____|\___/|_| \_|____/ \___/ 
 "
-let g:gundo_width = 40
+let g:gundo_width = 50
 
 let g:gundo_preview_height = 40
 
-let g:gundo_left = 1
+let g:gundo_right = 1
 
-nnoremap <F3> :GundoToggle<CR>
+nnoremap <F4> :GundoToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 "__   ______ __  __ 
@@ -219,6 +218,12 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 
 let g:ycm_seed_identifiers_with_syntax = 1
 
+let g:ycm_key_list_previous_completion = ['<C-P>', '<Up>']
+
+let g:ycm_key_list_select_completion = ['<C-N>', '<Down>']
+
+let g:ycm_key_invoke_completion = '<TAB>'
+
 let g:ycm_error_symbol = '>>'
 
 let g:ycm_warning_symbol = '⚠'
@@ -230,8 +235,23 @@ highlight YcmErrorSection ctermfg=WHITE
 highlight YcmWarningSection ctermbg=BLUE
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <F6> :YcmForceCompileAndDiagnostics<CR>
+" nnoremap <F6> :YcmForceCompileAndDiagnostics<CR>
 inoremap <leader>, <C-x><C-o>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" _   _ _   _____ ___ ____  _   _ ___ ____  ____  
+"| | | | | |_   _|_ _/ ___|| \ | |_ _|  _ \/ ___| 
+"| | | | |   | |  | |\___ \|  \| || || |_) \___ \ 
+"| |_| | |___| |  | | ___) | |\  || ||  __/ ___) |
+" \___/|_____|_| |___|____/|_| \_|___|_|   |____/ 
+"
+let g:UltiSnipsExpandTriger="<TAB>"
+
+let g:UltiSnipsJumpForwardTrigger="<C-n>"
+
+let g:UltiSnipsJumpBackwardTrigger="<C-p>"
+
+let g:UltiSnipsEditSplit="vertical"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " _____ _       _     _   _ _____ _____
@@ -279,11 +299,13 @@ let NERDTreeHightCursorline=1
 
 let NERDTreeShowLineNumbers=1
 
-let NERDTreeWinSize=40
+let NERDTreeWinSize=32
 
 let NERDTreeMinimalUI=1
 
 let NERDTreeAutoDeleteBuffer=1
+
+autocmd vimenter * if !argc() | NERDTree | endif
 
 nnoremap <silent><F2> :NERDTreeToggle<CR>
 
@@ -308,23 +330,15 @@ set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
 set t_Co=256
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"__     __ ___               
-"\ \   / // _ \  ___  _ __ ___
-" \ \ / /| | | |/ _ \| '_ ` _ \ 
-"  \ V / | |_| | |_| | | | | | |
-"   \_/   \___/ \___/|_| |_| |_|
-"
-nnoremap <F7> :VOom<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " __  __    _    ____  _   _ ____   ___ __        _ _   _ 
 "|  \/  |  / \  |  _ \| |/ /|  _ \ / _ \\ \  _   / | \ | |
 "| |\/| | / _ \ | |_) | | / | | | | | | |\ \/ \ / /|  \| |
 "| |  | |/ ___ \|  _ <|   \ | |_| | |_| | \  \ / / | |\  |
 "|_|  |_|_/   \_\_| \_\_|\_\|____/ \___/   \/ \_/  |_| \_|
 "
-nmap <F8> :MarkdownPreview<CR>
 " let g:mkdp_auto_start=1
+
+nmap <F6> :MarkdownPreview<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -351,7 +365,8 @@ nmap <F8> :MarkdownPreview<CR>
 " let g:jedi#completions_command = "<C-Space>"
 
 " let g:jedi#rename_command = "<leader>r"
- let g:jedi#completions_enabled = 0
+
+" let g:jedi#completions_enabled = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 "  ____ ____   ____ ___  ____  _____ 
@@ -361,8 +376,9 @@ nmap <F8> :MarkdownPreview<CR>
 " \____|____/ \____\___/|_|   |_____|
 "
 if has("cscope")
-    " quickfix support
-    set cscopequickfix=s-,c-,d-,i-,t-,e-
+	if has('quickfix') 
+		set cscopequickfix=s-,c-,d-,i-,t-,e- 
+	endif 
 
     " Ctrl+] & Ctrl+t/Ctrl+o support
     set cscopetag
@@ -395,27 +411,6 @@ if has("cscope")
     nmap csd :cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
 
-"nnoremap <leader>l  :call ToggleLocationList()<CR>
-
-nnoremap <leader>fa :call cscope#findInteractive(expand('<cword'))<CR>
-
-" s: Find this C symbol
-nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
-" g: Find this definition
-nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
-" d: Find functions called by this function
-nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
-" c: Find functions calling this function
-nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
-" t: Find this text string
-nnoremap  <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
-" e: Find this egrep pattern
-nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
-" f: Find this file
-nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
-" i: Find files #including this file
-nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 "  ___ _____  _    ____ ____ 
 " / __/_   _|/ \  / ___/ ___|
@@ -423,7 +418,7 @@ nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
 "| |___ | |/ ___ \ |_|  ___) |
 " \____||_/_/   \_\____|____/
 "
-nnoremap <F9> :!ctags -R --c++-kinds=+lpx --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
+nnoremap <F7> :!ctags -R --c++-kinds=+lpx --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " _        _    ____   ____ _____      _____ ___ _     _____ 
@@ -441,11 +436,9 @@ let g:LargeFile = 20
 "  | |/ ___ \ |_| | |___ | | ___) || |  
 "  |_/_/   \_\____|_____|___|____/ |_|  
 "
-let g:tagbar_ctags_bin='/usr/bin/ctags'
+"let g:tagbar_ctags_bin='/usr/bin/ctags'
 
-let g:tagbar_width=40
-
-nmap <F4> :TagbarToggle<CR>
+nmap <F3> :TagbarToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " ___ _   _ ____  _____ _   _ _____ ____ _   _ ___ ____  _____ 
@@ -454,12 +447,13 @@ nmap <F4> :TagbarToggle<CR>
 " | || |\  | |_| | |___| |\  | | || |_| | |_| || || |_| | |___ 
 "|___|_| \_|____/|_____|_| \_| |_| \____|\___/|___|____/|_____|
 "
-set ts=4 sw=4 et
 let g:indent_guides_enable_on_vim_startup = 1
+
 let g:indent_guides_start_level = 2
+
 let g:indent_guides_guide_size = 1
-autocmd VimEnter,Colorscheme *:hi IndentGuidesOdd  guibg=red ctermbg=3
-autocmd VimEnter,Colorscheme *:hi IndentGuidesEven guibg=green ctermbg=4
+
+let g:indentguides_ignorelist = ['text']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 "    _    
