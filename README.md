@@ -31,8 +31,8 @@
 
 > ### Attention:
 You need to configure this following plugins individually.
-- [*ctrlp*][1]
-    - Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+- [*ctrlsf*][1]
+    - An ack/ag/pt/rg powered code search and view tool, like ack.vim or :vimgrep but together with more context, and let you edit in-place with powerful edit mode.
 - [*YCM*][2]
     - YouCompleteMe: a code-completion engine for Vim
 - [*flake8*][3]
@@ -65,7 +65,7 @@ You need to configure this following plugins individually.
     so YCM can complete your project's function and class.
     ```
 
-- Create cscope database[*(see more details)*][7]
+- Create cscope database[*(show more details)*][7]
 *In project root directories*
 
     ```
@@ -98,7 +98,7 @@ You need to configure this following plugins individually.
     '-fexceptions',
     '-DNDEBUG',
 
-[1]:https://github.com/kien/ctrlp.vim
+[1]:https://github.com/dyng/ctrlsf.vim
 [2]:https://github.com/Valloric/YouCompleteMe
 [3]:https://github.com/nvie/vim-flake8
 [4]:https://github.com/powerline/powerline
