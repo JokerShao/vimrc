@@ -111,7 +111,6 @@ Bundle 'rdnetto/YCM-Generator', {'branch':'stable'}
 Bundle 'honza/vim-snippets'
 Bundle 'SirVer/ultisnips'
 Bundle 'nvie/vim-flake8'
-Bundle 'w0rp/ale'
 Bundle 'sukima/xmledit'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'iamcco/markdown-preview.vim'
@@ -131,6 +130,7 @@ Bundle 'dyng/ctrlsf.vim'
 Bundle 'kien/ctrlp.vim'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 't9md/vim-quickhl'
+"Bundle 'w0rp/ale'
 
 " 这个插件会导致开启vim终端打空格
 " Bundle 'davidhalter/jedi-vim'
@@ -229,11 +229,14 @@ let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 
 let g:ycm_key_invoke_completion = '<TAB>'
 
-let g:ycm_show_diagnostics_ui = 0
+" let g:ycm_show_diagnostics_ui = 0
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" nnoremap <F6> :YcmForceCompileAndDiagnostics<CR>
+highlight YcmErrorSign ctermfg=DarkRED
+highlight YcmErrorSign ctermbg=none
+highlight YcmErrorSection ctermbg=DARKBLUE
+highlight YcmErrorSection ctermfg=WHITE
 
 inoremap <leader>, <C-x><C-o>
 
@@ -524,13 +527,13 @@ nnoremap <Leader>rwc :call Replace(1, 1, input('Replace '.expand('<cword>').' wi
 "
 " let g:ale_set_loclist = 1
 
-let g:ale_open_list = 1
+" let g:ale_open_list = 1
 
-let g:ale_sign_error = '>>'
+" let g:ale_sign_error = '>>'
 
-let g:ale_sign_warning = '⚠'
+" let g:ale_sign_warning = '⚠'
 
-highlight ALEErrorSign ctermfg=DarkRED
-highlight ALEErrorSign ctermbg=none
-highlight ALEWarningSign ctermfg=DarkBLUE
-highlight ALEWarningSign ctermbg=none
+" highlight ALEErrorSign ctermfg=DarkRED
+" highlight ALEErrorSign ctermbg=none
+" highlight ALEWarningSign ctermfg=DarkBLUE
+" highlight ALEWarningSign ctermbg=none
