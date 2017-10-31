@@ -329,8 +329,6 @@ let g:NERDSpaceDelims=1
 "
 set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
 
-set t_Co=256
-
 
 "  __  __    _    ____  _   _ ____   ___ __        _ _   _ 
 " |  \/  |  / \  |  _ \| |/ /|  _ \ / _ \\ \  _   / | \ | |
