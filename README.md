@@ -31,21 +31,21 @@
 
 > ### Attention:
 You need to configure this following plugins individually.
-- [*ctrlsf*][1]
-    - An ack/ag/pt/rg powered code search and view tool, like ack.vim or :vimgrep but together with more context, and let you edit in-place with powerful edit mode.
-- [*YCM*][2]
+- [*YCM*][1]
     - YouCompleteMe: a code-completion engine for Vim
-- [*flake8*][3]
+- [*flake8*][2]
     - a Vim plugin that runs the currently open file through Flake8, a static syntax and style checker for Python source code. It supersedes both vim-pyflakes and vim-pep8.
-- [*powerline*][4]
+- [*powerline*][3]
     - Powerline is a statusline plugin for vim, and provides statuslines and prompts for several other applications, including zsh, bash, fish, tmux, IPython, Awesome, i3 and Qtile.
-- [*jedi-vim*][5]
+- [*jedi-vim*][4]
     - jedi-vim - awesome Python autocompletion with VIM
-- [*cscope*][6]
+- [*cscope*][5]
     - Cscove(new name for this plugin, since cscope.vim is used too widely.) is a smart cscope helper for vim.
+- [*ctrlsf*][6]
+	- `sudo apt install ack-grep`
+	- `sudo apt install silversearcher-ag`
 - *ctags*
-    - Ubuntu:`sudo apt install ctags`
-    - RedHat:`yum install ctags`
+    - `sudo apt install ctags`
 
 ## Shortcuts
 
@@ -98,10 +98,10 @@ You need to configure this following plugins individually.
     '-fexceptions',
     '-DNDEBUG',
 
-[1]:https://github.com/dyng/ctrlsf.vim
-[2]:https://github.com/Valloric/YouCompleteMe
-[3]:https://github.com/nvie/vim-flake8
-[4]:https://github.com/powerline/powerline
-[5]:https://github.com/davidhalter/jedi-vim
-[6]:https://github.com/brookhong/cscope.vim
+[1]:https://github.com/Valloric/YouCompleteMe
+[2]:https://github.com/nvie/vim-flake8
+[3]:https://github.com/powerline/powerline
+[4]:https://github.com/davidhalter/jedi-vim
+[5]:https://github.com/brookhong/cscope.vim
+[6]:https://github.com/dyng/ctrlsf.vim
 [7]:https://github.com/JokerShao/vimrc/blob/master/cscope.md
