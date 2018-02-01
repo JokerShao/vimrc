@@ -103,7 +103,7 @@ call vundle#begin()
 "let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
 
-"my Bundle here:
+"my Plugin here:
 "
 " original repos on github
 Plugin 'Valloric/YouCompleteMe'
@@ -116,7 +116,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'iamcco/mathjax-support-for-mkdp'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'JokerShao/nerdcommenter'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/nerdtree'
