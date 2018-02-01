@@ -101,50 +101,50 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 "let Vundle manage Vundle
-Bundle 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 "my Bundle here:
 "
 " original repos on github
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'rdnetto/YCM-Generator', {'branch':'stable'}
-Bundle 'honza/vim-snippets'
-Bundle 'SirVer/ultisnips'
-Bundle 'nvie/vim-flake8'
-Bundle 'sukima/xmledit'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'iamcco/markdown-preview.vim'
-Bundle 'iamcco/mathjax-support-for-mkdp'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'scrooloose/nerdtree'
-Bundle 'powerline/powerline'
-Bundle 'Valloric/ListToggle'
-Bundle 'godlygeek/tabular'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Mizuchi/STL-Syntax'
-Bundle 'dyng/ctrlsf.vim'
-Bundle 'kien/ctrlp.vim'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 't9md/vim-quickhl'
-"Bundle 'w0rp/ale'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator', {'branch':'stable'}
+Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'nvie/vim-flake8'
+Plugin 'sukima/xmledit'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'iamcco/markdown-preview.vim'
+Plugin 'iamcco/mathjax-support-for-mkdp'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'scrooloose/nerdtree'
+Plugin 'powerline/powerline'
+Plugin 'Valloric/ListToggle'
+Plugin 'godlygeek/tabular'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Mizuchi/STL-Syntax'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'kien/ctrlp.vim'
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 't9md/vim-quickhl'
+"Plugin 'w0rp/ale'
 
 " 这个插件会导致开启vim终端打空格
-" Bundle 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 "..................................
 " vim-scripts repos
-" Bundle 'vcscommand.vim'
-Bundle 'SudoEdit.vim'
-Bundle 'cscope.vim'
-Bundle 'header.vim'
-Bundle 'ShowPairs'
-Bundle 'LargeFile'
-Bundle 'EasyGrep'
-Bundle 'Tagbar'
-Bundle 'a.vim'
+" Plugin 'vcscommand.vim'
+Plugin 'SudoEdit.vim'
+Plugin 'cscope.vim'
+Plugin 'header.vim'
+Plugin 'ShowPairs'
+Plugin 'LargeFile'
+Plugin 'EasyGrep'
+Plugin 'Tagbar'
+Plugin 'a.vim'
 
 call vundle#end()
 filetype plugin indent on
