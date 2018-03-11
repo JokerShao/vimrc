@@ -1,9 +1,8 @@
-"    _  ___  _  _ _____ ____
-"   (_)/ _ \| |/ | ____|  _ \
-"   | | | | | | /|  _| | |_) |
-"   | | |_| |   \| |___|  _ <
-"  _/ |\___/|_|\_|_____|_| \_\
-" |__/
+"      _  ___  _  _______ ____
+"     | |/ _ \| |/ / ____|  _ \
+"  _  | | | | | ' /|  _| | |_) |
+" | |_| | |_| | . \| |___|  _ <
+"  \___/ \___/|_|\_\_____|_| \_\
 "
 " Joker commonly settings:
 
@@ -14,7 +13,7 @@
 " | |__| |_| | |  | | |  | | |_| | |\  |
 "  \____\___/|_|  |_|_|  |_|\___/|_| \_|
 "
-" joker:set leader
+" Joker:set leader
 let mapleader=","
 
 if has("syntax")
@@ -60,9 +59,8 @@ set mouse=a
 au BufNewFile,BufRead *.py
 \ set textwidth=79 |
 \ set expandtab |
-\ set fileformat=unix |
+\ set fileformat=unix
 
-"Enable folding
 set foldmethod=syntax
 set foldlevel=99
 nnoremap <space> za
@@ -72,52 +70,46 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 set enc=utf8
 set fencs=utf8,gbk,gb2312,gb18030
 
-"quit 
-nmap <ESC>w :w<Cr>
-nmap <ESC>q :q!<Cr>
-
-"text copy
-vnoremap <leader>y "+y
-nmap <leader>t "+p
-
-"split navigations
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
+nmap <ESC>w :w<Cr>
+nmap <ESC>q :q!<Cr>
+
+vnoremap <leader>y "+y
+
 filetype indent on
 
 
-" __     ___   _ _   _ ____  _     _____ 
+" __     ___   _ _   _ ____  _     _____
 " \ \   / / | | | \ | |  _ \| |   | ____|
-"  \ \ / /| | | |  \| | | | | |   |  _|  
+"  \ \ / /| | | |  \| | | | | |   |  _|
 "   \ V / | |_| | |\  | |_| | |___| |___ 
 "    \_/   \___/|_| \_|____/|_____|_____|
 "
-set nocompatible                " be iMproved
-filetype off                    " required!
+set nocompatible
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-"let Vundle manage Vundle
+" let Vundle manage plugin
 Plugin 'VundleVim/Vundle.vim'
 
-"my Plugin here:
-"
 " original repos on github
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator', {'branch':'stable'}
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
-Plugin 'nvie/vim-flake8'
-Plugin 'sukima/xmledit'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'w0rp/ale'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'iamcco/mathjax-support-for-mkdp'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'JokerShao/nerdcommenter'
-Plugin 'jiangmiao/auto-pairs'
+Plugin 'sukima/xmledit'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'powerline/powerline'
@@ -125,18 +117,13 @@ Plugin 'Valloric/ListToggle'
 Plugin 'godlygeek/tabular'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Mizuchi/STL-Syntax'
+Plugin 'kshenoy/vim-signature'
+Plugin 'Yggdroot/indentLine'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Plugin 't9md/vim-quickhl'
-"Plugin 'w0rp/ale'
-
-" 这个插件会导致开启vim终端打空格
-" Plugin 'davidhalter/jedi-vim'
+Plugin 'will133/vim-dirdiff'
 "..................................
 " vim-scripts repos
-" Plugin 'vcscommand.vim'
 Plugin 'SudoEdit.vim'
 Plugin 'cscope.vim'
 Plugin 'header.vim'
@@ -145,16 +132,19 @@ Plugin 'LargeFile'
 Plugin 'EasyGrep'
 Plugin 'Tagbar'
 Plugin 'a.vim'
+Plugin 'indexer.tar.gz'
+Plugin 'DfrankUtil'
+Plugin 'vimprj'
 
 call vundle#end()
 filetype plugin indent on
 
 
-"   ____ _____ ____  _     ____  
-"  / ___|_   _|  _ \| |   |  _ \ 
+"   ____ _____ ____  _     ____
+"  / ___|_   _|  _ \| |   |  _ \
 " | |     | | | |_) | |   | |_) |
-" | |___  | | |  _ <| |___|  __/ 
-"  \____| |_| |_| \_\_____|_|    
+" | |___  | | |  _ <| |___|  __/
+"  \____| |_| |_| \_\_____|_|
 "
 let g:ctrlp_map = '<leader>p'
 
@@ -180,11 +170,11 @@ let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 
 
-"   ____ _   _ _   _ ____   ___  
-"  / ___| | | | \ | |  _ \ / _ \ 
+"   ____ _   _ _   _ ____   ___
+"  / ___| | | | \ | |  _ \ / _ \
 " | |  _| | | |  \| | | | | | | |
 " | |_| | |_| | |\  | |_| | |_| |
-"  \____|\___/|_| \_|____/ \___/ 
+"  \____|\___/|_| \_|____/ \___/
 "
 let g:gundo_width = 50
 
@@ -195,11 +185,11 @@ let g:gundo_right = 1
 nnoremap <F4> :GundoToggle<CR>
 
 
-" __   ______ __  __ 
-" \ \ / / ___|  \/  |
-"  \ V / |   | |\/| |
-"   | || |___| |  | |
-"   |_| \____|_|  |_|
+"  _   _  ____ ___  __  __ ____  _     _____ _____ _____ __  __ _____ 
+" | | | |/ ___/ _ \|  \/  |  _ \| |   | ____|_   _| ____|  \/  | ____|
+" | | | | |  | | | | |\/| | |_) | |   |  _|   | | |  _| | |\/| |  _|
+" | |_| | |__| |_| | |  | |  __/| |___| |___  | | | |___| |  | | |___ 
+"  \___/ \____\___/|_|  |_|_|   |_____|_____| |_| |_____|_|  |_|_____|
 "
 set completeopt-=preview
 
@@ -208,7 +198,6 @@ set autochdir
 
 let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
 
-" Do not ask when starting vim
 let g:ycm_confirm_extra_conf = 0
 
 let g:ycm_collect_identifiers_from_tags_files = 1
@@ -235,17 +224,17 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 highlight YcmErrorSign ctermfg=DarkRED
 highlight YcmErrorSign ctermbg=none
-highlight YcmErrorSection ctermbg=DARKBLUE
+highlight YcmErrorSection ctermbg=DarkBLUE
 highlight YcmErrorSection ctermfg=WHITE
 
 inoremap <leader>, <C-x><C-o>
 
 
-"  _   _ _   _____ ___ ____  _   _ ___ ____  ____  
-" | | | | | |_   _|_ _/ ___|| \ | |_ _|  _ \/ ___| 
-" | | | | |   | |  | |\___ \|  \| || || |_) \___ \ 
+"  _   _ _   _____ ___ ____  _   _ ___ ____  ____
+" | | | | | |_   _|_ _/ ___|| \ | |_ _|  _ \/ ___|
+" | | | | |   | |  | |\___ \|  \| || || |_) \___ \
 " | |_| | |___| |  | | ___) | |\  || ||  __/ ___) |
-"  \___/|_____|_| |___|____/|_| \_|___|_|   |____/ 
+"  \___/|_____|_| |___|____/|_| \_|___|_|   |____/
 "
 let g:UltiSnipsExpandTriger="<TAB>"
 
@@ -256,32 +245,9 @@ let g:UltiSnipsJumpBackwardTrigger="<C-p>"
 let g:UltiSnipsEditSplit="vertical"
 
 
-"  _____ _       _     _   _ _____ _____
-" |  ___| |     / \   | |/ /| ____/ ___ \
-" | |_  | |    / _ \  | | / |  _| \_\_/_/
-" |  _| | |___/ ___ \ |   \ | |___/ /_\ \
-" |_|   |____/_/   \_\|_|\_\|_____\_____/
-"
-" let g:falke8_ignore="E302"
-
-let g:flake8_quickfix_height = 7
-
-let g:flake8_show_in_gutter=1
-
-let g:flake8_show_in_file=1
-
-" flake8_error_marker='EE'     " set error marker to 'EE'
-" flake8_warning_marker='WW'   " set warning marker to 'WW'
-" flake8_pyflake_marker=''     " disable PyFlakes warnings
-" flake8_complexity_marker=''  " disable McCabe complexity warnings
-" flake8_naming_marker=''      " disable naming warnings
-
-noremap <F5> :call flake8#Flake8()<CR>
-
-
 "  _   _ _____ ____  ____      _____ ____  _____ _____ 
 " | \ | | ____|  _ \|  _ \    |_   _|  _ \| ____| ____|
-" |  \| |  _| | |_) | | | |_____| | | |_) |  _| |  _|  
+" |  \| |  _| | |_) | | | |_____| | | |_) |  _| |  _|
 " | |\  | |___|  _ <| |_| |_____| | |  _ <| |___| |___ 
 " |_| \_|_____|_| \_\____/      |_| |_| \_\_____|_____|
 "
@@ -312,21 +278,21 @@ autocmd vimenter * if !argc() | NERDTree | endif
 nnoremap <silent><F2> :NERDTreeToggle<CR>
 
 
-"  _   _ _____ ____  ____   ____            
-" | \ | | ____|  _ \|  _ \ / __/ ___  _ __ ___
-" |  \| |  _| | |_) | | | | |   / _ \| '_ ` _ \ 
-" | |\  | |___|  _ <| |_| | |__| |_| | | | | | |
-" |_| \_|_____|_| \_\____/ \___\\___/|_| |_| |_|
-"
+"  _   _ _____ ____  ____   ____ 
+" | \ | | ____|  _ \|  _ \ / ___|___  _ __ ___
+" |  \| |  _| | |_) | | | | |   / _ \| '_ ` _ \
+" | |\  | |___|  _ <| |_| | |__| (_) | | | | | |
+" |_| \_|_____|_| \_\____/ \____\___/|_| |_| |_|
+" 
 let g:NERDSpaceDelims=1
 
 
-"  ____   ___ __        _ _____ ____  _    ___ _   _ _____ 
-" |  _ \ / _ \\ \  _   / / ____|  _ \| |  |_ _| \ | | ____|
-" | |_) | | | |\ \/ \ / /|  _| | |_) | |   | ||  \| |  _|  
-" |  __/| |_| | \  \ / / | |___| |_ <| |__ | || |\  | |___ 
-" |_|    \___/   \/ \_/  |_____|_| \_\____|___|_| \_|_____|
-"
+"  ____   _____        _______ ____  _     ___ _   _ _____ 
+" |  _ \ / _ \ \      / / ____|  _ \| |   |_ _| \ | | ____|
+" | |_) | | | \ \ /\ / /|  _| | |_) | |    | ||  \| |  _|
+" |  __/| |_| |\ V  V / | |___|  _ <| |___ | || |\  | |___ 
+" |_|    \___/  \_/\_/  |_____|_| \_\_____|___|_| \_|_____|
+" 
 set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
 
 
@@ -338,40 +304,12 @@ set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
 "
 " let g:mkdp_auto_start=1
 
-nmap <F6> :MarkdownPreview<CR>
-
-
-" 
-"   (_) ___  __| (_)    __   _(_)_ __ ___  
-"   | |/ _ \/ _` | |____\ \ / / | '_ ` _ \ 
-"   | |  __/ (_| | |_____\ V /| | | | | | |
-"  _/ |\___|\__,_|_|      \_/ |_|_| |_| |_|
-" |__/                                     
-"
-" let g:jedi#use_tabs_not_buffers = 1
-
-" let g:jedi#use_splits_not_buffers = "left"
-
-" let g:jedi#goto_command = "<leader>d"
-
-" let g:jedi#goto_assignments_command = "<leader>g"
-
-" let g:jedi#goto_definitions_command = ""
-
-" let g:jedi#documentation_command = "K"
-
-" let g:jedi#usages_command = "<leader>n"
-
-" let g:jedi#completions_command = "<C-Space>"
-
-" let g:jedi#rename_command = "<leader>r"
-
-" let g:jedi#completions_enabled = 0
+nmap <F5> :MarkdownPreview<CR>
 
 
 "   ____ ____   ____ ___  ____  _____ 
 "  / ___/ ___| / ___/ _ \|  _ \| ____|
-" | |   \___ \| |  | | | | |_) |  _|  
+" | |   \___ \| |  | | | | |_) |  _|
 " | |___ ___) | |__| |_| |  __/| |___ 
 "  \____|____/ \____\___/|_|   |_____|
 "
@@ -412,18 +350,9 @@ if has("cscope")
 endif
 
 
-"   ___ _____  _    ____ ____ 
-"  / __/_   _|/ \  / ___/ ___|
-" | |    | | / _ \| |  _\___ \
-" | |___ | |/ ___ \ |_|  ___) |
-"  \____||_/_/   \_\____|____/
-"
-nnoremap <F7> :!ctags -R --c++-kinds=+lpx --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
-
-
 "  _        _    ____   ____ _____      _____ ___ _     _____ 
 " | |      / \  |  _ \ / ___| ____|    |  ___|_ _| |   | ____|
-" | |     / _ \ | |_) | |  _|  _| _____| |_   | || |   |  _|  
+" | |     / _ \ | |_) | |  _|  _| _____| |_   | || |   |  _|
 " | |___ / ___ \|  _ <| |_| | |__|_____|  _|  | || |___| |___ 
 " |_____/_/   \_\_| \_\\____|_____|    |_|   |___|_____|_____|
 "
@@ -432,45 +361,69 @@ let g:LargeFile = 20
 
 "  _____  _    ____ _     ___ ____ _____ 
 " |_   _|/ \  / ___| |   |_ _/ ___|_   _|
-"   | | / _ \| |  _| |    | |\___ \ | |  
-"   | |/ ___ \ |_| | |___ | | ___) || |  
-"   |_/_/   \_\____|_____|___|____/ |_|  
+"   | | / _ \| |  _| |    | |\___ \ | |
+"   | |/ ___ \ |_| | |___ | | ___) || |
+"   |_/_/   \_\____|_____|___|____/ |_|
 "
 " let g:tagbar_ctags_bin='/usr/bin/ctags'
 
 nmap <F3> :TagbarToggle<CR>
 
+let tagbar_width = 32
 
-"  ___ _   _ ____  _____ _   _ _____ ____ _   _ ___ ____  _____ 
-" |_ _| \ | |  _ \| ____| \ | |_   _/ ___| | | |_ _|  _ \| ____|
-"  | ||  \| | | | |  _| |  \| | | || |  _| | | || || | | |  _|  
-"  | || |\  | |_| | |___| |\  | | || |_| | |_| || || |_| | |___ 
-" |___|_| \_|____/|_____|_| \_| |_| \____|\___/|___|____/|_____|
-"
-let g:indent_guides_enable_on_vim_startup = 1
+let g:tagbar_compact = 1
 
-let g:indent_guides_start_level = 2
+let g:tagbar_type_cpp = {
+	\ 'kinds' : [
+		 \ 'c:classes:0:1',
+		 \ 'd:macros:1:1',
+		 \ 'e:enumerators:1:0',
+		 \ 'f:functions:0:1',
+		 \ 'g:enumeration:0:1',
+		 \ 'l:local:1:1',
+		 \ 'm:members:0:1',
+		 \ 'n:namespaces:0:1',
+		 \ 'p:functions_prototypes:0:1',
+		 \ 's:structs:0:1',
+		 \ 't:typedefs:0:1',
+		 \ 'u:unions:0:1',
+		 \ 'v:global:0:1',
+		 \ 'x:external:0:1'
+	 \ ],
+	 \ 'sro'        : '::',
+	 \ 'kind2scope' : {
+		 \ 'g' : 'enum',
+		 \ 'n' : 'namespace',
+		 \ 'c' : 'class',
+		 \ 's' : 'struct',
+		 \ 'u' : 'union'
+	 \ },
+	 \ 'scope2kind' : {
+		 \ 'enum'      : 'g',
+		 \ 'namespace' : 'n',
+		 \ 'class'     : 'c',
+		 \ 'struct'    : 's',
+		 \ 'union'     : 'u'
+	 \ }
+\ }
 
-let g:indent_guides_guide_size = 1
 
-let g:indentguides_ignorelist = ['text']
-
-
-"     _     
-"    / \    
-"   / _ \   
-"  / ___ \  
-" /_/   \_\ 
+"     _
+"    / \
+"   / _ \
+"  / ___ \
+" /_/   \_\
 "
 nmap <leader>ch :AS<Cr>
 
 
-"   ___ _____ ____  _     ____  _____ 
-"  / __/_   _|  _ \| |   / ___||  ___|
-" | |    | | | |_) | |   \___ \| |_   
-" | |___ | | |  _ <| |___ ___) |  _|  
-"  \____||_| |_| \_\_____\____/|_|   
-"
+"   ____ _____ ____  _     ____  _____ 
+"  / ___|_   _|  _ \| |   / ___||  ___|
+" | |     | | | |_) | |   \___ \| |_ 
+" | |___  | | |  _ <| |___ ___) |  _|
+"  \____| |_| |_| \_\_____|____/|_|
+"                                      
+
 nmap     <leader>sf :CtrlSF<Cr>
 " nmap     <leader>ff <Plug>CtrlSFPrompt
 " vmap     <leader>ff <Plug>CtrlSFVwordPath
@@ -484,7 +437,7 @@ nmap     <leader>sf :CtrlSF<Cr>
 
 "  ____  _____ ____  _       _     ____ _____
 " |  _ \| ____|  _ \| |     / \   / ___/ ____|
-" | |_) |  _| | |_) | |    / _ \ | |   |  _| 
+" | |_) |  _| | |_) | |    / _ \ | |   |  _|
 " |  _ <| |___|  __/| |___/ ___ \| |__ | |___
 " |_| \_\_____|_|   |____/_/   \_\\____\_____|
 "
@@ -519,19 +472,63 @@ nnoremap <Leader>rwc :call Replace(1, 1, input('Replace '.expand('<cword>').' wi
 
 "     _    _     _____ 
 "    / \  | |   | ____|
-"   / _ \ | |   |  _|  
+"   / _ \ | |   |  _|
 "  / ___ \| |___| |___ 
 " /_/   \_\_____|_____|
 "
-" let g:ale_set_loclist = 1
+let g:ale_set_loclist = 0
 
-" let g:ale_open_list = 1
+let g:ale_set_quickfix = 1
 
-" let g:ale_sign_error = '>>'
+let g:ale_open_list = 1
 
-" let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '>>'
 
-" highlight ALEErrorSign ctermfg=DarkRED
-" highlight ALEErrorSign ctermbg=none
-" highlight ALEWarningSign ctermfg=DarkBLUE
-" highlight ALEWarningSign ctermbg=none
+let g:ale_sign_warning = '>>'
+
+highlight ALEErrorSign ctermfg=DarkRED
+highlight ALEErrorSign ctermbg=none
+highlight ALEWarningSign ctermfg=BLACK
+highlight ALEWarningSign ctermbg=YELLOW
+
+aug QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+aug END
+
+
+"  ___ _   _ ____  _____ _   _ _____ _     ___ _   _ _____ 
+" |_ _| \ | |  _ \| ____| \ | |_   _| |   |_ _| \ | | ____|
+"  | ||  \| | | | |  _| |  \| | | | | |    | ||  \| |  _|
+"  | || |\  | |_| | |___| |\  | | | | |___ | || |\  | |___ 
+" |___|_| \_|____/|_____|_| \_| |_| |_____|___|_| \_|_____|
+"
+set list lcs=tab:\┆\ 
+
+let g:indentLine_char = '┆'
+
+let g:indentLine_conceallevel = 2
+
+
+"  ___ _   _ ____  _______  _______ ____
+" |_ _| \ | |  _ \| ____\ \/ / ____|  _ \
+"  | ||  \| | | | |  _|  \  /|  _| | |_) |
+"  | || |\  | |_| | |___ /  \| |___|  _ <
+" |___|_| \_|____/|_____/_/\_\_____|_| \_\
+" 
+let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
+
+
+"   ____ ____  ____       _   _ ___ ____ _   _ _     ___ ____ _   _ _____ 
+"  / ___|  _ \|  _ \     | | | |_ _/ ___| | | | |   |_ _/ ___| | | |_   _|
+" | |   | |_) | |_) |____| |_| || | |  _| |_| | |    | | |  _| |_| | | |
+" | |___|  __/|  __/_____|  _  || | |_| |  _  | |___ | | |_| |  _  | | |
+"  \____|_|   |_|        |_| |_|___\____|_| |_|_____|___\____|_| |_| |_|
+"
+let g:cpp_class_scope_highlight = 1
+
+let g:cpp_member_variable_highlight = 1
+
+let g:cpp_class_decl_highlight = 1
+
+let g:cpp_experimental_template_highlight = 1

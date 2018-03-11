@@ -33,12 +33,8 @@
 You need to configure this following plugins individually.
 - [*YCM*][1]
     - YouCompleteMe: a code-completion engine for Vim
-- [*flake8*][2]
-    - a Vim plugin that runs the currently open file through Flake8, a static syntax and style checker for Python source code. It supersedes both vim-pyflakes and vim-pep8.
 - [*powerline*][3]
     - Powerline is a statusline plugin for vim, and provides statuslines and prompts for several other applications, including zsh, bash, fish, tmux, IPython, Awesome, i3 and Qtile.
-- [*jedi-vim*][4]
-    - jedi-vim - awesome Python autocompletion with VIM
 - [*cscope*][5]
     - Cscove(new name for this plugin, since cscope.vim is used too widely.) is a smart cscope helper for vim.
 - [*ctrlsf*][6]
@@ -49,10 +45,11 @@ You need to configure this following plugins individually.
 
 ## Shortcuts
 
-	F1.Terminal help             F5.Flake8
-	F2.NERDTree                  F6.Markdown-preview
-	F3.Tagbar                    F7.TagsUpdate
+	F1.Terminal help
+	F2.NERDTree
+	F3.Tagbar
 	F4.Gundo
+	F5.Markdown-preview
 
 ## Working in a c/c++ project
 
@@ -75,14 +72,15 @@ You need to configure this following plugins individually.
     ```
 
 - Create ctags file
-> Need rebuild tags file when change source file.
+	modify ~/.indexer_files like this:
+	```
+	--------------- ~/.indexer_files ---------------
+	[foo]
+	/data/workplace/foo/src/
+	[bar]
+	/data/workplace/bar/src/
+	```
 
-    - For c project
-        `ctags -R --c-kinds=+lpx --fields=+iaS --extra=+q`
-    - For c++ project
-        `ctags -R --c++-kinds=+lpx --fields=+iaS --extra=+q`
-    - For java project
-        `ctags --java-kinds=+l -R .`
 
 ## .ycm_extra_conf.py
 
@@ -99,9 +97,7 @@ You need to configure this following plugins individually.
     '-DNDEBUG',
 
 [1]:https://github.com/Valloric/YouCompleteMe
-[2]:https://github.com/nvie/vim-flake8
-[3]:https://github.com/powerline/powerline
-[4]:https://github.com/davidhalter/jedi-vim
-[5]:https://github.com/brookhong/cscope.vim
-[6]:https://github.com/dyng/ctrlsf.vim
-[7]:https://github.com/JokerShao/vimrc/blob/master/cscope.md
+[2]:https://github.com/powerline/powerline
+[3]:https://github.com/brookhong/cscope.vim
+[4]:https://github.com/dyng/ctrlsf.vim
+[5]:https://github.com/JokerShao/vimrc/blob/master/cscope.md
