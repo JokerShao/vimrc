@@ -33,11 +33,11 @@
 You need to configure this following plugins individually.
 - [*YCM*][1]
     - YouCompleteMe: a code-completion engine for Vim
-- [*powerline*][3]
+- [*powerline*][2]
     - Powerline is a statusline plugin for vim, and provides statuslines and prompts for several other applications, including zsh, bash, fish, tmux, IPython, Awesome, i3 and Qtile.
-- [*cscope*][5]
+- [*cscope*][3]
     - Cscove(new name for this plugin, since cscope.vim is used too widely.) is a smart cscope helper for vim.
-- [*ctrlsf*][6]
+- [*ctrlsf*][4]
 	- `sudo apt install ack-grep`
 	- `sudo apt install silversearcher-ag`
 - *ctags*
@@ -62,7 +62,7 @@ You need to configure this following plugins individually.
     so YCM can complete your project's function and class.
     ```
 
-- Create cscope database[*(show more details)*][7]
+- Create cscope database[*(show more details)*][5]
 *In project root directories*
 
     ```
@@ -72,14 +72,15 @@ You need to configure this following plugins individually.
     ```
 
 - Create ctags file
-	modify ~/.indexer_files like this:
-	```
-	--------------- ~/.indexer_files ---------------
-	[foo]
-	/data/workplace/foo/src/
-	[bar]
-	/data/workplace/bar/src/
-	```
+
+    ```
+    modify ~/.indexer_files like this:
+    --------------- ~/.indexer_files ---------------
+    [foo]
+    /data/workplace/foo/src/
+    [bar]
+    /data/workplace/bar/src/
+    ```
 
 
 ## .ycm_extra_conf.py
