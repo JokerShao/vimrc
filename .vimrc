@@ -157,17 +157,17 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
     \ }
 
-let g:ctrlp_working_path_mode=0
+let g:ctrlp_working_path_mode = 0
 
-let g:ctrlp_match_window_bottom=1
+let g:ctrlp_match_window_bottom = 1
 
-let g:ctrlp_max_height=15
+let g:ctrlp_max_height = 15
 
-let g:ctrlp_match_window_reversed=0
+let g:ctrlp_match_window_reversed = 0
 
-let g:ctrlp_mruf_max=500
+let g:ctrlp_mruf_max = 500
 
-let g:ctrlp_follow_symlinks=1
+let g:ctrlp_follow_symlinks = 1
 
 
 "   ____ _   _ _   _ ____   ___
@@ -196,7 +196,7 @@ set completeopt-=preview
 set tags=tags;
 set autochdir
 
-let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
 
 let g:ycm_confirm_extra_conf = 0
 
@@ -236,13 +236,13 @@ inoremap <leader>, <C-x><C-o>
 " | |_| | |___| |  | | ___) | |\  || ||  __/ ___) |
 "  \___/|_____|_| |___|____/|_| \_|___|_|   |____/
 "
-let g:UltiSnipsExpandTriger="<TAB>"
+let g:UltiSnipsExpandTriger = "<TAB>"
 
-let g:UltiSnipsJumpForwardTrigger="<C-n>"
+let g:UltiSnipsJumpForwardTrigger = "<C-n>"
 
-let g:UltiSnipsJumpBackwardTrigger="<C-p>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-p>"
 
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit = "vertical"
 
 
 "  _   _ _____ ____  ____      _____ ____  _____ _____ 
@@ -251,27 +251,27 @@ let g:UltiSnipsEditSplit="vertical"
 " | |\  | |___|  _ <| |_| |_____| | |  _ <| |___| |___ 
 " |_| \_|_____|_| \_\____/      |_| |_| \_\_____|_____|
 "
-let NERDTreeWinPos="left"
+let NERDTreeWinPos = "left"
 
-let NERDChristmasTree=1
+let NERDChristmasTree = 1
  
-let NERDTreeAutoCenter=1
+let NERDTreeAutoCenter = 1
  
-let NERDTreeMouseMode=2
+let NERDTreeMouseMode = 2
  
-let NERDTreeShowFiles=1
+let NERDTreeShowFiles = 1
  
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 
-let NERDTreeHightCursorline=1
+let NERDTreeHightCursorline = 1
 
-let NERDTreeShowLineNumbers=1
+let NERDTreeShowLineNumbers = 1
 
-let NERDTreeWinSize=32
+let NERDTreeWinSize = 32
 
-let NERDTreeMinimalUI=1
+let NERDTreeMinimalUI = 1
 
-let NERDTreeAutoDeleteBuffer=1
+let NERDTreeAutoDeleteBuffer = 1
 
 autocmd vimenter * if !argc() | NERDTree | endif
 
@@ -284,7 +284,13 @@ nnoremap <silent><F2> :NERDTreeToggle<CR>
 " | |\  | |___|  _ <| |_| | |__| (_) | | | | | |
 " |_| \_|_____|_| \_\____/ \____\___/|_| |_| |_|
 " 
-let g:NERDSpaceDelims=1
+let g:NERDSpaceDelims = 1
+
+let g:NERDDefaultAlign = 'left'
+
+let g:NERDCommentEmptyLines = 1
+
+let g:NERDCustomDelimiters = { 'python': { 'left': '#', 'leftAlt': '#' } }
 
 
 "  ____   _____        _______ ____  _     ___ _   _ _____ 
@@ -480,7 +486,7 @@ let g:ale_set_loclist = 0
 
 let g:ale_set_quickfix = 1
 
-let g:ale_open_list = 1
+" let g:ale_open_list = 1
 
 let g:ale_sign_error = '>>'
 
