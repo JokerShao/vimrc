@@ -550,7 +550,7 @@ let g:header_auto_add_header = 0
 
 let g:header_field_author = 'joker'
 
-let g:header_field_author_email = 'shaozxlf@foxmail.com'
+let g:header_field_author_email = 'zexishao@foxmail.com'
 
 let g:header_field_modified_by = 0
 
