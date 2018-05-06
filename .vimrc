@@ -122,7 +122,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'will133/vim-dirdiff'
-Plugin 'alpertuna/vim-header'
+" Plugin 'alpertuna/vim-header'
 "..................................
 " vim-scripts repos
 Plugin 'SudoEdit.vim'
@@ -556,9 +556,9 @@ let g:header_field_modified_by = 0
 
 let g:header_field_timestamp_format = '%Y-%m-%d %H:%M:%S'
 
-autocmd BufNewFile *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.py,*.sh call header#add_header(0, 0, 1)
-autocmd BufNewFile *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.py,*.sh :normal ``
-autocmd BufWritePre *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.py,*.sh silent! :AddHeader
+" autocmd BufNewFile *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.py,*.sh call header#add_header(0, 0, 1)
+" autocmd BufNewFile *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.py,*.sh :normal ``
+" autocmd BufWritePre *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.py,*.sh silent! :AddHeader
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
