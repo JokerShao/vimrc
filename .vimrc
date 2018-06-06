@@ -122,6 +122,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'will133/vim-dirdiff'
+Plugin 'vim-latex/vim-latex'
 " Plugin 'alpertuna/vim-header'
 "..................................
 " vim-scripts repos
@@ -563,3 +564,12 @@ let g:header_field_timestamp_format = '%Y-%m-%d %H:%M:%S'
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+
+"  _         _____
+" | |    __ |_   _|____  __
+" | |   / _` || |/ _ \ \/ /
+" | |__| (_| || |  __/>  <
+" |_____\__,_||_|\___/_/\_\
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
