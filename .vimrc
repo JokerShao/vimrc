@@ -118,12 +118,12 @@ Plugin 'godlygeek/tabular'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kshenoy/vim-signature'
-Plugin 'Yggdroot/indentLine'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'will133/vim-dirdiff'
 Plugin 'vim-latex/vim-latex'
 " Plugin 'alpertuna/vim-header'
+" Plugin 'Yggdroot/indentLine'
 "..................................
 " vim-scripts repos
 Plugin 'SudoEdit.vim'
@@ -510,11 +510,11 @@ aug END
 "  | || |\  | |_| | |___| |\  | | | | |___ | || |\  | |___ 
 " |___|_| \_|____/|_____|_| \_| |_| |_____|___|_| \_|_____|
 "
-set list lcs=tab:\┆\ 
-
-let g:indentLine_char = '┆'
-
-let g:indentLine_conceallevel = 2
+" set list lcs=tab:\┆\ 
+" 
+" let g:indentLine_char = '┆'
+" 
+" let g:indentLine_conceallevel = 2
 
 
 "  ___ _   _ ____  _______  _______ ____
