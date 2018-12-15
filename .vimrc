@@ -566,10 +566,16 @@ if has("autocmd")
 endif
 
 
-"  _         _____
-" | |    __ |_   _|____  __
-" | |   / _` || |/ _ \ \/ /
-" | |__| (_| || |  __/>  <
+"  _         _____   __  __
+" | |    __ |_   _|__\ \/ /
+" | |   / _` || |/ _ \\  /
+" | |__| (_| || |  __//  \
 " |_____\__,_||_|\___/_/\_\
+" 
 set grepprg=grep\ -nH\ $*
+
 let g:tex_flavor='latex'
+
+set iskeyword+=:
+
+autocmd BufEnter *.tex set sw=2
