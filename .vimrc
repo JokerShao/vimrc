@@ -14,7 +14,7 @@
 "  \____\___/|_|  |_|_|  |_|\___/|_| \_|
 "
 " Joker:set leader
-let mapleader=","
+let mapleader="["
 
 if has("syntax")
 	syntax on
@@ -26,6 +26,7 @@ colorscheme solarized
 
 set timeoutlen=1000
 set ttimeoutlen=100
+set updatetime=100
 
 set laststatus=2
 set history=1000
@@ -37,6 +38,10 @@ set ruler
 
 set cursorcolumn
 set cursorline
+
+" optimize scrolling screen
+set re=1
+set ttyfast
 
 set splitbelow
 set splitright
@@ -50,7 +55,7 @@ set incsearch
 set smartcase
 set hlsearch
 set wildmenu
-set scrolloff=4
+set scrolloff=8
 
 set backspace=indent,eol,start
 set softtabstop=4
@@ -77,8 +82,9 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
-nmap <ESC>w :w<Cr>
-nmap <ESC>q :q!<Cr>
+nnoremap <leader>ww :w<Cr>
+nnoremap <leader>q :q!<Cr>
+nnoremap <leader>wq :wq<Cr>
 
 vnoremap <leader>y "+y
 
@@ -100,20 +106,21 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " original repos on github
-" 2019.08.18 too slow,disable to boost.
+" 2020.07.04 too slow, disable to boost.
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'rdnetto/YCM-Generator', {'branch':'stable'}
 " Plugin 'w0rp/ale'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'alpertuna/vim-header'
-" Plugin 'Yggdroot/indentLine'
 " Plugin 'EasyGrep'
 " Plugin 'indexer.tar.gz'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'Valloric/ListToggle'
+Plugin 'Yggdroot/indentLine'
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'iamcco/mathjax-support-for-mkdp'
@@ -122,7 +129,6 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
-Plugin 'Valloric/ListToggle'
 Plugin 'godlygeek/tabular'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
@@ -130,17 +136,20 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'will133/vim-dirdiff'
-Plugin 'vim-latex/vim-latex'
-"..................................
+" conflict <C-j>
+" Plugin 'vim-latex/vim-latex'
+" startup time statistics
+" Plugin 'tweekmonster/startuptime.vim'
+" ..................................
 " vim-scripts repos
+" Plugin 'Tagbar'
+" Plugin 'vimprj'
 Plugin 'SudoEdit.vim'
 Plugin 'cscope.vim'
 Plugin 'ShowPairs'
 Plugin 'LargeFile'
-Plugin 'Tagbar'
 Plugin 'a.vim'
 Plugin 'DfrankUtil'
-Plugin 'vimprj'
 
 call vundle#end()
 filetype plugin indent on
@@ -159,9 +168,9 @@ let g:ctrlp_cmd = 'CtrlP'
 map <leader>f :CtrlPMRU<CR>
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
-    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
-    \ }
+        \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+        \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
+        \ }
 
 let g:ctrlp_working_path_mode = 0
 
@@ -176,19 +185,19 @@ let g:ctrlp_mruf_max = 500
 let g:ctrlp_follow_symlinks = 1
 
 
-" "   ____ _   _ _   _ ____   ___
-" "  / ___| | | | \ | |  _ \ / _ \
-" " | |  _| | | |  \| | | | | | | |
-" " | |_| | |_| | |\  | |_| | |_| |
-" "  \____|\___/|_| \_|____/ \___/
-" "
-" let g:gundo_width = 50
+"   ____ _   _ _   _ ____   ___
+"  / ___| | | | \ | |  _ \ / _ \
+" | |  _| | | |  \| | | | | | | |
+" | |_| | |_| | |\  | |_| | |_| |
+"  \____|\___/|_| \_|____/ \___/
 "
-" let g:gundo_preview_height = 40
-"
-" let g:gundo_right = 1
-"
-" nnoremap <F4> :GundoToggle<CR>
+let g:gundo_width = 50
+
+let g:gundo_preview_height = 40
+
+let g:gundo_right = 1
+
+nnoremap <F4> :GundoToggle<CR>
 
 
 " "  _   _  ____ ___  __  __ ____  _     _____ _____ _____ __  __ _____
@@ -389,37 +398,37 @@ let tagbar_width = 32
 let g:tagbar_compact = 1
 
 let g:tagbar_type_cpp = {
-	\ 'kinds' : [
-		\ 'c:classes:0:1',
-		\ 'd:macros:1:1',
-		\ 'e:enumerators:1:0',
-		\ 'f:functions:0:1',
-		\ 'g:enumeration:0:1',
-		\ 'l:local:1:1',
-		\ 'm:members:0:1',
-		\ 'n:namespaces:0:1',
-		\ 'p:functions_prototypes:0:1',
-		\ 's:structs:0:1',
-		\ 't:typedefs:0:1',
-		\ 'u:unions:0:1',
-		\ 'v:global:0:1',
-		\ 'x:external:0:1'
-	\ ],
-	\ 'sro'        : '::',
-	\ 'kind2scope' : {
-		\ 'g' : 'enum',
-		\ 'n' : 'namespace',
-		\ 'c' : 'class',
-		\ 's' : 'struct',
-		\ 'u' : 'union'
-	\ },
-	\ 'scope2kind' : {
-		\ 'enum'      : 'g',
-		\ 'namespace' : 'n',
-		\ 'class'     : 'c',
-		\ 'struct'    : 's',
-		\ 'union'     : 'u'
-	\ }
+    \ 'kinds' : [
+   	 \ 'c:classes:0:1',
+   	 \ 'd:macros:1:1',
+   	 \ 'e:enumerators:1:0',
+   	 \ 'f:functions:0:1',
+   	 \ 'g:enumeration:0:1',
+   	 \ 'l:local:1:1',
+   	 \ 'm:members:0:1',
+   	 \ 'n:namespaces:0:1',
+   	 \ 'p:functions_prototypes:0:1',
+   	 \ 's:structs:0:1',
+   	 \ 't:typedefs:0:1',
+   	 \ 'u:unions:0:1',
+   	 \ 'v:global:0:1',
+   	 \ 'x:external:0:1'
+    \ ],
+    \ 'sro'        : '::',
+    \ 'kind2scope' : {
+   	 \ 'g' : 'enum',
+   	 \ 'n' : 'namespace',
+   	 \ 'c' : 'class',
+   	 \ 's' : 'struct',
+   	 \ 'u' : 'union'
+    \ },
+    \ 'scope2kind' : {
+   	 \ 'enum'      : 'g',
+   	 \ 'namespace' : 'n',
+   	 \ 'class'     : 'c',
+   	 \ 'struct'    : 's',
+   	 \ 'union'     : 'u'
+    \ }
 \ }
 
 
@@ -460,15 +469,15 @@ function! Replace(confirm, wholeword, replace)
     wa
     let flag = ''
     if a:confirm
-        let flag .= 'gec'
+   	 let flag .= 'gec'
     else
-        let flag .= 'ge'
+   	 let flag .= 'ge'
     endif
     let search = ''
     if a:wholeword
-        let search .= '\<' . escape(expand('<cword>'), '/\.*$^~[') . '\>'
+   	 let search .= '\<' . escape(expand('<cword>'), '/\.*$^~[') . '\>'
     else
-        let search .= expand('<cword>')
+   	 let search .= expand('<cword>')
     endif
     let replace = escape(a:replace, '/\&~')
     execute 'argdo %s/' . search . '/' . replace . '/' . flag . '| update'
@@ -512,17 +521,26 @@ nnoremap <Leader>rwc :call Replace(1, 1, input('Replace '.expand('<cword>').' wi
 " aug END
 
 
+"  _     ___ ____ _____ _____ ___   ____  ____ _     _____
+" | |   |_ _/ ___|_   _|_   _/ _ \ / ___|/ ___| |   | ____|
+" | |    | |\___ \ | |   | || | | | |  _| |  _| |   |  _|
+" | |___ | | ___) || |   | || |_| | |_| | |_| | |___| |___
+" |_____|___|____/ |_|   |_| \___/ \____|\____|_____|_____|
+"
+let g:lt_quickfix_list_toggle_map = '<leader>z'
+
+
 "  ___ _   _ ____  _____ _   _ _____ _     ___ _   _ _____
 " |_ _| \ | |  _ \| ____| \ | |_   _| |   |_ _| \ | | ____|
 "  | ||  \| | | | |  _| |  \| | | | | |    | ||  \| |  _|
 "  | || |\  | |_| | |___| |\  | | | | |___ | || |\  | |___
 " |___|_| \_|____/|_____|_| \_| |_| |_____|___|_| \_|_____|
 "
-" set list lcs=tab:\┆\
-"
-" let g:indentLine_char = '┆'
-"
-" let g:indentLine_conceallevel = 2
+set list lcs=tab:\┆\
+
+let g:indentLine_char = '┆'
+
+let g:indentLine_conceallevel = 2
 
 
 "  ___ _   _ ____  _______  _______ ____
@@ -574,16 +592,18 @@ let g:cpp_experimental_template_highlight = 1
 " endif
 
 
-"  _         _____   __  __
-" | |    __ |_   _|__\ \/ /
-" | |   / _` || |/ _ \\  /
-" | |__| (_| || |  __//  \
-" |_____\__,_||_|\___/_/\_\
-"
-set grepprg=grep\ -nH\ $*
+" "  _         _____   __  __
+" " | |    __ |_   _|__\ \/ /
+" " | |   / _` || |/ _ \\  /
+" " | |__| (_| || |  __//  \
+" " |_____\__,_||_|\___/_/\_\
+" "
+" set grepprg=grep\ -nH\ $*
+" 
+" let g:tex_flavor='latex'
+" 
+" set iskeyword+=:
+" 
+" autocmd BufEnter *.tex set sw=2
 
-let g:tex_flavor='latex'
 
-set iskeyword+=:
-
-autocmd BufEnter *.tex set sw=2
