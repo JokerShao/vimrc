@@ -113,12 +113,12 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'alpertuna/vim-header'
+" Plugin 'Yggdroot/indentLine'
 " Plugin 'EasyGrep'
 " Plugin 'indexer.tar.gz'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/ListToggle'
-Plugin 'Yggdroot/indentLine'
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
 Plugin 'plasticboy/vim-markdown'
@@ -530,17 +530,17 @@ nnoremap <Leader>rwc :call Replace(1, 1, input('Replace '.expand('<cword>').' wi
 let g:lt_quickfix_list_toggle_map = '<leader>z'
 
 
-"  ___ _   _ ____  _____ _   _ _____ _     ___ _   _ _____
-" |_ _| \ | |  _ \| ____| \ | |_   _| |   |_ _| \ | | ____|
-"  | ||  \| | | | |  _| |  \| | | | | |    | ||  \| |  _|
-"  | || |\  | |_| | |___| |\  | | | | |___ | || |\  | |___
-" |___|_| \_|____/|_____|_| \_| |_| |_____|___|_| \_|_____|
-"
-set list lcs=tab:\┆\
-
-let g:indentLine_char = '┆'
-
-let g:indentLine_conceallevel = 2
+" "  ___ _   _ ____  _____ _   _ _____ _     ___ _   _ _____
+" " |_ _| \ | |  _ \| ____| \ | |_   _| |   |_ _| \ | | ____|
+" "  | ||  \| | | | |  _| |  \| | | | | |    | ||  \| |  _|
+" "  | || |\  | |_| | |___| |\  | | | | |___ | || |\  | |___
+" " |___|_| \_|____/|_____|_| \_| |_| |_____|___|_| \_|_____|
+" "
+" set list lcs=tab:\┆\
+" 
+" let g:indentLine_char = '┆'
+" 
+" let g:indentLine_conceallevel = 2
 
 
 "  ___ _   _ ____  _______  _______ ____
