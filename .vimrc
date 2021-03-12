@@ -22,7 +22,7 @@ endif
 
 set background=light
 let g:solarized_termcolors=256
-colorscheme solarized
+" colorscheme solarized
 
 set timeoutlen=1000
 set ttimeoutlen=100
@@ -35,6 +35,9 @@ set nobackup
 set showcmd
 set number
 set ruler
+
+autocmd InsertEnter * :set norelativenumber number
+autocmd InsertLeave * :set relativenumber
 
 set cursorcolumn
 set cursorline
@@ -145,7 +148,7 @@ Plugin 'will133/vim-dirdiff'
 " Plugin 'Tagbar'
 " Plugin 'vimprj'
 Plugin 'SudoEdit.vim'
-Plugin 'cscope.vim'
+" Plugin 'cscope.vim'
 Plugin 'ShowPairs'
 Plugin 'LargeFile'
 Plugin 'a.vim'
