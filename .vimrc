@@ -36,8 +36,8 @@ set showcmd
 set number
 set ruler
 
-autocmd InsertEnter * :set norelativenumber number
-autocmd InsertLeave * :set relativenumber
+" autocmd InsertEnter * :set norelativenumber number
+" autocmd InsertLeave * :set relativenumber
 
 set cursorcolumn
 set cursorline
